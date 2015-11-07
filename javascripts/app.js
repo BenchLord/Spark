@@ -1,13 +1,15 @@
-var app = angular.module('myApp', ['ui.router', 'firebase'])
+(function() {
+  var app = angular.module('myApp', ['ui.router', 'firebase', 'auth'])
 
-app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/')
+  app.config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/')
 
-  $stateProvider
-    .state('myState', {
-      url: "/",
-      templateUrl: "views/thankyou.html"
-      // controller: "myController",
-      // controllerAs: "myCtrl"
-    })
-})
+    $stateProvider
+      .state('myState', {
+        url: "/",
+        // templateUrl: "views/myView.html"
+        // controller: "myController",
+        // controllerAs: "myCtrl"
+      })
+  })
+})();
