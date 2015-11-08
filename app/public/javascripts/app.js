@@ -15,12 +15,11 @@
   app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/')
 
-    $stateProvider
-      .state('myState', {
-        url: "/",
-        // templateUrl: "views/myView.html"
-        // controller: "myController",
-        // controllerAs: "myCtrl"
-      });
+    $stateProvider.state('myState', {
+      url: "/",
+      // templateUrl: "views/myView.html"
+      // controller: "myController",
+      // controllerAs: "myCtrl"
+    });
   });
 })();
