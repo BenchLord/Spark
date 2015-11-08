@@ -16,9 +16,7 @@ gulp.task('start', function() {
 
 gulp.task('less', function() {
   return gulp.src('app/public/styles/**/*.less')
-    .pipe(less({
-      // paths: [path.join(__dirname, 'less', 'includes')]
-    }))
+    .pipe(less({}))
     .pipe(gulp.dest('app/public/styles/build'));
 });
 
