@@ -32,7 +32,7 @@
     }
 
     function onAuthCallback(authData) {
-      if (authData){
+      if (authData) {
         $timeout(function() {
           vm.user = authData;
           vm.authed = true;
