@@ -6,7 +6,11 @@
     'ngMaterial',
     'ngAnimate',
     'ngAria'
-  ]);
+  ]).config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('cyan')
+      .accentPalette('pink');
+  });
 
   app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/')
