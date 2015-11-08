@@ -1,14 +1,19 @@
 <html ng-app="myApp">
 <head>
-  <link href="vendor/material-design-lite/material.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link href="vendor/material-design-lite/material.min.css"> -->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="vendor/angular-material/angular-material.css">
 
   <!-- Bower Scripts -->
-  <script type="text/javascript" src="vendor/angular/angular.min.js"></script>
-  <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script type="text/javascript" src="vendor/firebase/firebase.js"></script>
-  <script type="text/javascript" src="vendor/angularfire/dist/angularfire.min.js"></script>
-  <script type="text/javascript" src="vendor/material-design-lite/material.min.js"></script>
+  <script src="vendor/angular/angular.min.js"></script>
+  <script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="vendor/firebase/firebase.js"></script>
+  <script src="vendor/angularfire/dist/angularfire.min.js"></script>
+  <script src="vendor/angular-animate/angular-animate.js"></script>
+  <script src="vendor/angular-aria/angular-aria.js"></script>
+  <script src="vendor/angular-material/angular-material.js"></script>
 
   <!-- Google Authentication Scripts -->
   <script src="javascripts/auth/google/auth.google.module.js"></script>
@@ -23,8 +28,21 @@
   <script src="javascripts/app.js"></script>
 </head>
 <body>
-  <sp-google></sp-google>
   <div ui-view>
+    <div layout="column" layout-fill>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <span>My App's Title</span>
+          <!-- fill up the space between left and right area -->
+          <span flex></span>
+          <sp-google text="Sign in w/Google"></sp-google>
+        </div>
+      </md-toolbar>
+      <md-content>
+        Hello!
+      </md-content>
+    </div>
+
     <!-- $stateProvider in app.js places your views here! -->
   </div>
 </body>

@@ -1,5 +1,12 @@
 (function() {
-  var app = angular.module('myApp', ['ui.router', 'firebase', 'auth'])
+  var app = angular.module('myApp', [
+    'ui.router',
+    'firebase',
+    'auth',
+    'ngMaterial',
+    'ngAnimate',
+    'ngAria'
+  ]);
 
   app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/')
@@ -10,6 +17,6 @@
         // templateUrl: "views/myView.html"
         // controller: "myController",
         // controllerAs: "myCtrl"
-      })
-  })
+      });
+  });
 })();

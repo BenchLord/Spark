@@ -7,7 +7,7 @@
 First, download the zip or use the command line to get a local copy
 
 ```sh
-$ git clone https://github.com/BenchLord/Spark.git
+$ git clone https://github.com/benchlord/spark.git
 ```
 
 Next, you will need to install all the app components. npm will install both
@@ -30,7 +30,7 @@ edit.
 ### Make it yours
 
 - Change 'myApp' in 'javascripts/app.js' to your app name
-- Change 'myApp" in 'views/base.html' to your app name
+- Change 'myApp" in 'views/index.html' to your app name
 
 ## Authentication
 
