@@ -1,12 +1,22 @@
-var gulp    = require('gulp'),
-    connect = require('gulp-connect');
+var gulp = require('gulp'),
+  nodemon = require('gulp-nodemon'),
+  browserSync = require('browser-sync').create();
 
-gulp.task('connect-dev', function() {
-  connect.server({
-    root: __dirname,
-    port: 1337,
-    fallback: 'views/base.html'
-  })
+gulp.task('start', function() {
+  nodemon({
+    script: 'app/server.js',
+    ext: 'js html',
+    env: {
+      'NODE_ENV': 'development'
+    }
+  });
 });
 
-gulp.task('default', ['connect-dev']);
+// TODO: causes crashses... :(
+// gulp.task('browser-sync', function() {
+//   browserSync.init({
+//     proxy: 'localhost:3000'
+//   });
+// });
+
+gulp.task('default', ['start']);

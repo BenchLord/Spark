@@ -23,8 +23,9 @@ Finally, start the server with Gulp:
 $ gulp
 ```
 
-In your browser navigate to [http://localhost:1337](http://localhost:1337). This
-will also start up BrowserSync, allowing your app to reload as you edit.
+In your browser navigate to [http://localhost:3000](http://localhost:3000). This
+will also start up BrowserSync and Nodemon, allowing your app to reload as you
+edit.
 
 ### Make it yours
 
