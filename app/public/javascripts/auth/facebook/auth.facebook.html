@@ -1,0 +1,18 @@
+<md-button
+  class="facebookButton md-raised"
+  id="facebookLogin"
+  ng-click="fb.login()"
+  ng-hide="fb.authed">
+  <img src="/images/fb-logo.png">
+  {{fb.text}}
+</md-button>
+
+<div class="facebookButton" id="facebookLogout" ng-show="fb.authed">
+  <md-button ng-click="fb.logout()" class="md-icon-button">
+    <md-icon>exit_to_app</md-icon>
+    <md-tooltip>
+      Sign Out
+    </md-tooltip>
+  </md-button>
+  <!-- <img ng-src="{{vm.user.google.profileImageURL}}" alt="" class="avatar"> -->
+</div>

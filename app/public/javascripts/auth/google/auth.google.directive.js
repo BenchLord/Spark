@@ -20,7 +20,8 @@
     vm.login = login;
     vm.logout = logout;
     vm.authed = false;
-    vm.text = $attrs.text ? $attrs.text : 'Google';
+    vm.text = $attrs.text ? $attrs.text :
+      'Login with Google';
 
     function login() {
       ref.authWithOAuthPopup("google", function() {});
