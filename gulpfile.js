@@ -2,9 +2,10 @@ var gulp = require('gulp'),
   nodemon = require('gulp-nodemon'),
   less = require('gulp-less'),
   path = require('path'),
-  browserSync = require('browser-sync').create();
+  browserSync = require('browser-sync'),
+  reload = browserSync.reload;
 
-gulp.task('start', function() {
+gulp.task('nodemon', function() {
   nodemon({
     script: 'app/server.js',
     ext: 'js html',
@@ -22,11 +23,17 @@ gulp.task('less', function() {
     .pipe(gulp.dest('app/public/styles/build'));
 });
 
-// TODO: causes crashses... :(
-// gulp.task('browser-sync', function() {
-//   browserSync.init({
-//     proxy: 'localhost:3000'
-//   });
-// });
+gulp.task('browser-sync', ['nodemon'], function() {
+  browserSync({
+    proxy: "localhost:3000", // local node app address
+    port: 5000, // use *different* port than above
+    notify: true
+  });
+});
 
-gulp.task('default', ['start', 'less']);
+gulp.task('default', ['browser-sync'], function() {
+  gulp.watch(['app/public/javascripts/**/*.html'], reload);
+  gulp.watch(['app/public/views/*.ejs'], reload);
+  gulp.watch(['app/public/styles/*.less'], ['less']);
+  gulp.watch(['app/public/styles/build/*.css'], reload);
+});
