@@ -11,6 +11,9 @@
   <md-button ng-click="vm.logout()">
     {{vm.user.google.displayName}}
     <md-icon>exit_to_app</md-icon>
+    <md-tooltip>
+      Sign Out
+    </md-tooltip>
   </md-button>
   <img ng-src="{{vm.user.google.profileImageURL}}" alt="" class="avatar">
 </div>
