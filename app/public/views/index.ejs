@@ -38,7 +38,6 @@
             <md-icon>menu</md-icon>
           </md-button>
           <span>My App</span>
-          <!-- fill up the space between left and right area -->
           <span flex></span>
           <md-button class="md-icon-button" ng-show="vm.authed">
             <md-icon>notifications</md-icon>
@@ -49,10 +48,13 @@
           <sp-google></sp-google>
         </div>
       </md-toolbar>
+
+      <!-- Logged out content -->
       <md-content layout-padding ng-hide="vm.authed">
         Please log in
       </md-content>
 
+      <!-- Logged in content -->
       <md-content layout-padding ng-show="vm.authed">
         Hello World!
       </md-content>

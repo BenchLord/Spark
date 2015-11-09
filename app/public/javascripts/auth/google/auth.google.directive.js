@@ -10,9 +10,15 @@
       };
     });
 
-  GoogleController.$inject = ['$attrs', '$timeout', '$scope', '$state'];
+  GoogleController.$inject = [
+    '$attrs',
+    '$timeout',
+    '$scope',
+    '$state',
+    '$mdToast'
+  ];
 
-  function GoogleController($attrs, $timeout, $scope, $state) {
+  function GoogleController($attrs, $timeout, $scope, $state, $mdToast) {
     // This needs to be done with a constant
     var ref = new Firebase('https://sparktesting.firebaseio.com/');
 
@@ -23,7 +29,10 @@
     vm.authed = false;
 
     function login() {
-      ref.authWithOAuthPopup("google", function() {});
+      ref.authWithOAuthPopup("google", function() {
+        console.log('yay');
+        $mdToast.show($mdToast.simple().content('Successfully logged in'));
+      });
     }
 
     function logout() {
