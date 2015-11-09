@@ -13,7 +13,7 @@
   });
 
   app.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/')
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('myState', {
       url: "/",
