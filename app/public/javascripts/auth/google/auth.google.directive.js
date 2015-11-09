@@ -17,11 +17,10 @@
     var ref = new Firebase('https://sparktesting.firebaseio.com/');
 
     var vm = this;
-    vm.login = login;
-    vm.logout = logout;
+    vm.google = {};
+    vm.google.login = login;
+    vm.google.logout = logout;
     vm.authed = false;
-    vm.text = $attrs.text ? $attrs.text :
-      'Login with Google';
 
     function login() {
       ref.authWithOAuthPopup("google", function() {});

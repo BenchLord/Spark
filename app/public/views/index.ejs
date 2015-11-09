@@ -20,10 +20,6 @@
   <script src="javascripts/auth/google/auth.google.module.js"></script>
   <script src="javascripts/auth/google/auth.google.directive.js"></script>
 
-  <!-- Facebook Authentication Scripts -->
-  <script src="javascripts/auth/facebook/auth.facebook.module.js"></script>
-  <script src="javascripts/auth/facebook/auth.facebook.directive.js"></script>
-
   <!-- Main Authentication Script -->
   <script src="javascripts/auth/auth.module.js"></script>
 
@@ -55,7 +51,6 @@
       </md-toolbar>
       <md-content layout-padding ng-hide="vm.authed">
         Please log in
-        <sp-facebook></sp-facebook>
       </md-content>
 
       <md-content layout-padding ng-show="vm.authed">
