@@ -1,11 +1,15 @@
 <md-button
-  class="googleButton"
+  class="googleButton md-raised"
   id="googleLogin"
   ng-click="vm.login()"
-  ng-hide="vm.authed">{{vm.text}}</md-button>
+  ng-hide="vm.authed">
+  <img src="/images/g-logo.png">
+  {{vm.text}}
+</md-button>
 
-<md-button
-  class="googleButton"
-  id="googleLogout"
-  ng-click="vm.logout()"
-  ng-show="vm.authed">Logout</md-button>
+<div class="googleButton" id="googleLogout" ng-show="vm.authed">
+  <md-button ng-click="vm.logout()">
+    Logout
+  </md-button>
+  <img src="/images/avatar.png" alt="" class="avatar">
+</div>
