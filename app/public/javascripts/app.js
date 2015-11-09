@@ -5,7 +5,10 @@
     'auth',
     'ngMaterial',
     'ngAnimate',
-    'ngAria'
+    'ngAria',
+
+    // Add app-specific directives here
+    'notifications'
   ]).config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('cyan')

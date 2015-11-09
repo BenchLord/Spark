@@ -23,6 +23,11 @@
   <!-- Main Authentication Script -->
   <script src="javascripts/auth/auth.module.js"></script>
 
+  <!-- sp-notification -->
+  <script src="javascripts/notifications/notifications.module.js"></script>
+  <script src="javascripts/notifications/notifications.directive.js"></script>
+
+
   <!-- App Script -->
   <script src="javascripts/app.js"></script>
 
@@ -39,40 +44,7 @@
           </md-button>
           <span>My App</span>
           <span flex></span>
-
-          <md-menu>
-           <md-button class="md-icon-button" ng-show="vm.authed" ng-click="$mdOpenMenu($event)">
-             <md-icon>notifications</md-icon>
-           </md-button>
-           <md-menu-content>
-             <md-menu-item>
-               <md-button>
-                 <md-icon>clear_all</md-icon>
-                 Clear Notifications
-               </md-button>
-             </md-menu-item>
-             <md-divider></md-divider>
-             <md-menu-item>
-               <md-button>
-                 <md-icon>event</md-icon>
-                 My Notification
-               </md-button>
-             </md-menu-item>
-             <md-menu-item>
-               <md-button>
-                 <md-icon>face</md-icon>
-                 My Notification
-               </md-button>
-             </md-menu-item>
-             <md-menu-item>
-               <md-button>
-                 <md-icon>event</md-icon>
-                 My Notification
-               </md-button>
-             </md-menu-item>
-           </md-menu-content>
-          </md-menu>
-
+          <sp-notifications ng-show="vm.authed"></sp-notifications>
           <sp-google></sp-google>
         </div>
       </md-toolbar>
