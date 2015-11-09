@@ -39,12 +39,40 @@
           </md-button>
           <span>My App</span>
           <span flex></span>
-          <md-button class="md-icon-button" ng-show="vm.authed">
-            <md-icon>notifications</md-icon>
-            <md-tooltip>
-              Notifications
-            </md-tooltip>
-          </md-button>
+
+          <md-menu>
+           <md-button class="md-icon-button" ng-show="vm.authed" ng-click="$mdOpenMenu($event)">
+             <md-icon>notifications</md-icon>
+           </md-button>
+           <md-menu-content>
+             <md-menu-item>
+               <md-button>
+                 <md-icon>event</md-icon>
+                 My Notification
+               </md-button>
+             </md-menu-item>
+             <md-menu-item>
+               <md-button>
+                 <md-icon>face</md-icon>
+                 My Notification
+               </md-button>
+             </md-menu-item>
+             <md-menu-item>
+               <md-button>
+                 <md-icon>event</md-icon>
+                 My Notification
+               </md-button>
+             </md-menu-item>
+             <md-divider></md-divider>
+             <md-menu-item>
+               <md-button>
+                 <md-icon>clear</md-icon>
+                 Clear Notifications
+               </md-button>
+             </md-menu-item>
+           </md-menu-content>
+          </md-menu>
+
           <sp-google></sp-google>
         </div>
       </md-toolbar>
