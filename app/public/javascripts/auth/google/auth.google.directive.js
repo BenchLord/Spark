@@ -10,20 +10,29 @@
       };
     });
 
-  GoogleController.$inject = ['$attrs', '$timeout', '$scope', '$state'];
+  GoogleController.$inject = [
+    '$attrs',
+    '$timeout',
+    '$scope',
+    '$state',
+    '$mdToast'
+  ];
 
-  function GoogleController($attrs, $timeout, $scope, $state) {
+  function GoogleController($attrs, $timeout, $scope, $state, $mdToast) {
     // This needs to be done with a constant
     var ref = new Firebase('https://sparktesting.firebaseio.com/');
 
     var vm = this;
-    vm.login = login;
-    vm.logout = logout;
+    vm.google = {};
+    vm.google.login = login;
+    vm.google.logout = logout;
     vm.authed = false;
-    vm.text = $attrs.text ? $attrs.text : 'Google';
 
     function login() {
-      ref.authWithOAuthPopup("google", function() {});
+      ref.authWithOAuthPopup("google", function() {
+        console.log('yay');
+        $mdToast.show($mdToast.simple().content('Successfully logged in'));
+      });
     }
 
     function logout() {
@@ -32,7 +41,7 @@
     }
 
     function onAuthCallback(authData) {
-      if (authData){
+      if (authData) {
         $timeout(function() {
           vm.user = authData;
           vm.authed = true;

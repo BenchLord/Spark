@@ -1,0 +1,71 @@
+<html ng-app="myApp">
+<head>
+  <title><%= title %></title>
+
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- 3rd pary CSS -->
+  <link rel="stylesheet" href="vendor/angular-material/angular-material.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Bower Scripts -->
+  <script src="vendor/angular/angular.min.js"></script>
+  <script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="vendor/firebase/firebase.js"></script>
+  <script src="vendor/angularfire/dist/angularfire.min.js"></script>
+  <script src="vendor/angular-animate/angular-animate.js"></script>
+  <script src="vendor/angular-aria/angular-aria.js"></script>
+  <script src="vendor/angular-material/angular-material.js"></script>
+
+  <!-- Google Authentication Scripts -->
+  <script src="javascripts/auth/google/auth.google.module.js"></script>
+  <script src="javascripts/auth/google/auth.google.directive.js"></script>
+
+  <!-- Main Authentication Script -->
+  <script src="javascripts/auth/auth.module.js"></script>
+
+  <!-- sp-notification -->
+  <script src="javascripts/notifications/notifications.module.js"></script>
+  <script src="javascripts/notifications/notifications.directive.js"></script>
+
+  <!-- App Script -->
+  <script src="javascripts/app.js"></script>
+
+  <!-- App stylesheet -->
+  <link rel="stylesheet" href="styles/build/app.css">
+</head>
+<body>
+  <div ui-view>
+    <div layout="column" layout-fill>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <md-button class="md-icon-button" ng-show="vm.authed" aria-label="Settings">
+            <md-icon>menu</md-icon>
+          </md-button>
+          <span>My App</span>
+          <span flex></span>
+          <sp-notifications ng-show="vm.authed"></sp-notifications>
+          <sp-google></sp-google>
+        </div>
+      </md-toolbar>
+
+      <!-- Logged out content -->
+      <!-- These should be views -->
+      <md-content layout-padding ng-hide="vm.authed">
+        Please log in
+      </md-content>
+
+      <!-- Logged in content -->
+      <!-- These should be views -->
+      <md-content layout-padding ng-show="vm.authed">
+        Hello World!
+      </md-content>
+    </div>
+
+    <!-- $stateProvider in app.js places your views here! -->
+  </div>
+</body>
+</html>
