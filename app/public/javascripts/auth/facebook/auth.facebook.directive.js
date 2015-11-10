@@ -2,38 +2,37 @@
   'use strict';
 
   angular
-    .module('auth.google')
-    .directive('spGoogle', function() {
+    .module('auth.facebook')
+    .directive('spFacebook', function() {
       return {
         bindToController: true,
-        controller: GoogleController,
+        controller: FacebookController,
         controllerAs: 'vm',
-        templateUrl: './javascripts/auth/google/auth.google.html'
+        templateUrl: './javascripts/auth/facebook/auth.facebook.html'
       };
     });
 
-  GoogleController.$inject = [
+  FacebookController.$inject = [
     '$attrs',
     '$timeout',
     '$scope',
     '$state',
     '$mdToast'
-  ];
+  ]
 
-  function GoogleController($attrs, $timeout, $scope, $state, $mdToast) {
-    // This needs to be done with a constant
+  function FacebookController($attrs, $timeout, $scope, $state, $mdToast) {
     var ref = new Firebase('https://sparktesting.firebaseio.com/');
 
     var vm = this;
-    vm.google = {};
-    vm.google.login = login;
-    vm.google.logout = logout;
+    vm.facebook = {};
+    vm.facebook.login = login;
+    vm.facebook.logout = logout;
     vm.authed = false;
-
+    
     function login() {
-      ref.authWithOAuthPopup("google", function() {
+      ref.authWithOAuthPopup("facebook", function() {
         console.log('yay');
-        $mdToast.show($mdToast.simple().content('Successfully logged in with Google'));
+        $mdToast.show($mdToast.simple().content('Successfully logged in with Facebook'));
       });
     }
 
@@ -50,7 +49,6 @@
         })
       }
     }
-
     ref.onAuth(onAuthCallback);
   }
 })();
