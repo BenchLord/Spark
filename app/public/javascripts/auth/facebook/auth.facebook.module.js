@@ -2,5 +2,5 @@
   'use strict';
 
   angular
-    .module('auth.google', [])
+    .module('auth.facebook', [])
 })();
