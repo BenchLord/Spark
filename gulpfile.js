@@ -3,6 +3,7 @@ var gulp = require('gulp'),
   less = require('gulp-less'),
   path = require('path'),
   browserSync = require('browser-sync'),
+  babel = require('gulp-babel'),
   reload = browserSync.reload;
 
 gulp.task('nodemon', function() {

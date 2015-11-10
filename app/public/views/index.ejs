@@ -31,7 +31,6 @@
   <script src="javascripts/notifications/notifications.module.js"></script>
   <script src="javascripts/notifications/notifications.directive.js"></script>
 
-
   <!-- App Script -->
   <script src="javascripts/app.js"></script>
 
@@ -43,7 +42,7 @@
     <div layout="column" layout-fill>
       <md-toolbar>
         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" aria-label="Settings">
+          <md-button class="md-icon-button" ng-show="vm.authed" aria-label="Settings">
             <md-icon>menu</md-icon>
           </md-button>
           <span>My App</span>
