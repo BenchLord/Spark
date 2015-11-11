@@ -24,7 +24,7 @@ gulp.task('less', function() {
     .pipe(gulp.dest('app/public/styles/build'));
 });
 
-gulp.task('browser-sync', ['nodemon'], function() {
+gulp.task('browser-sync', ['nodemon', 'less'], function() {
   browserSync({
     proxy: "localhost:3000", // local node app address
     port: 5000, // use *different* port than above

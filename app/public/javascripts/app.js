@@ -18,6 +18,7 @@
   });
 
   app.config(function($stateProvider, $urlRouterProvider) {
+    // TODO: replace this with /dash if logged in
     $urlRouterProvider.otherwise('/auth/login');
 
     $stateProvider.state('loginState', {
