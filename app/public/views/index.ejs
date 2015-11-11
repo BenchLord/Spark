@@ -41,34 +41,42 @@
   <link rel="stylesheet" href="styles/build/app.css">
 </head>
 <body>
-  <div ui-view>
-    <div layout="column" layout-fill>
-      <md-toolbar>
-        <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" ng-show="vm.authed" aria-label="Settings">
-            <md-icon>menu</md-icon>
-          </md-button>
-          <span>My App</span>
-          <span flex></span>
-          <sp-notifications ng-show="vm.authed"></sp-notifications>
-          <sp-google></sp-google>
-        </div>
-      </md-toolbar>
-
-      <!-- Logged out content -->
-      <!-- These should be views -->
-      <md-content layout-padding ng-hide="vm.authed">
-        Please log in
-      </md-content>
-
-      <!-- Logged in content -->
-      <!-- These should be views -->
-      <md-content layout-padding ng-show="vm.authed">
-        Hello World!
-      </md-content>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" ng-show="vm.authed" aria-label="Settings">
+        <md-icon>menu</md-icon>
+      </md-button>
+      <span>My App</span>
+      <span flex></span>
+      <sp-notifications ng-show="vm.authed"></sp-notifications>
+      <sp-google ng-hide="true"></sp-google>
+      <div class="googleButton" id="googleLogout" ng-show="vm.authed">
+        <md-menu>
+         <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+           <img ng-src="{{vm.user.google.profileImageURL}}" alt="" class="avatar">
+         </md-button>
+         <md-menu-content>
+           <md-menu-item>
+             <md-button>
+               <md-icon>settings</md-icon>
+               Settings
+             </md-button>
+           </md-menu-item>
+           <md-divider></md-divider>
+           <md-menu-item>
+             <md-button ng-click="vm.google.logout()">
+               <md-icon>exit_to_app</md-icon>
+               Logout
+             </md-button>
+           </md-menu-item>
+         </md-menu-content>
+        </md-menu>
+      </div>
     </div>
-
-    <!-- $stateProvider in app.js places your views here! -->
+  </md-toolbar>
+  <div layout="column" layout-padding>
+    <div ui-view>
+    </div>
   </div>
 </body>
 </html>
