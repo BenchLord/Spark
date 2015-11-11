@@ -31,15 +31,19 @@
     vm.authed = false;
 
     function login() {
-      ref.authWithOAuthPopup("google", function() {
-        console.log('yay');
-        $mdToast.show($mdToast.simple().content('Successfully logged in with Google'));
+      ref.authWithOAuthPopup("google", function(err) {
+        if (!err) {
+          $mdToast.show($mdToast.simple().content(
+            'Successfully logged in'));
+          $state.go('homeState');
+        }
       });
     }
 
     function logout() {
       ref.unauth();
       vm.authed = false;
+      $state.go('loginState');
     }
 
     function onAuthCallback(authData) {

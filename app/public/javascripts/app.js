@@ -13,18 +13,21 @@
     'notifications'
   ]).config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
-      .primaryPalette('cyan')
+      .primaryPalette('blue')
       .accentPalette('pink');
   });
 
   app.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/auth/login');
 
-    $stateProvider.state('myState', {
-      url: "/",
-      // templateUrl: "views/myView.html"
-      // controller: "myController",
-      // controllerAs: "myCtrl"
+    $stateProvider.state('loginState', {
+      url: "/auth/login",
+      templateUrl: "/views/login.ejs"
+    });
+
+    $stateProvider.state('homeState', {
+      url: "/dash",
+      templateUrl: "/views/home.ejs"
     });
   });
 })();

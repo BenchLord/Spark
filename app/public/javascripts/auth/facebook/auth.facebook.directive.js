@@ -28,11 +28,11 @@
     vm.facebook.login = login;
     vm.facebook.logout = logout;
     vm.authed = false;
-    
+
     function login() {
       ref.authWithOAuthPopup("facebook", function() {
-        console.log('yay');
-        $mdToast.show($mdToast.simple().content('Successfully logged in with Facebook'));
+        $mdToast.show($mdToast.simple().content(
+          'Successfully logged in'));
       });
     }
 
